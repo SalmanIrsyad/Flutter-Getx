@@ -23,7 +23,7 @@ class DashboardView extends GetView<DashboardController> {
     return SafeArea(
       // Widget SafeArea menempatkan semua konten widget ke dalam area yang aman (safe area) dari layar.
       child: DefaultTabController(
-        length: 4,
+        length: 5,
         // Widget DefaultTabController digunakan untuk mengatur tab di aplikasi.
         child: Scaffold(
           floatingActionButton: FloatingActionButton(
@@ -54,7 +54,7 @@ class DashboardView extends GetView<DashboardController> {
                     textAlign: TextAlign.end,
                   ),
                   trailing: Container(
-                    // Widget Container digunakan untuk mengatur tampilan konten dalam kotak.
+                    // Widget Container digunakan untuk mengatur tampilan konten dalam ko  tak.
                     margin: const EdgeInsets.only(right: 10),
                     // Properti margin digunakan untuk menentukan jarak dari tepi kontainer ke tepi widget yang di dalamnya.
                     width: 50.0,
@@ -87,6 +87,7 @@ class DashboardView extends GetView<DashboardController> {
                       Tab(text: "Teknologi"),
                       Tab(text: "Olahraga"),
                       Tab(text: "Hiburan"),
+                      Tab(text: "Profile"),
                     ],
                   ),
                 ),
@@ -101,8 +102,57 @@ class DashboardView extends GetView<DashboardController> {
               technology(controller, scrollController),
               sports(controller, scrollController),
               entertainment(controller, scrollController),
+              profile(controller, scrollController),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  profile(DashboardController controller, ScrollController scrollController) {
+      return Scaffold(
+        body: Container(
+        padding: const EdgeInsets.all(10),
+        child: ListView(
+          children: [
+            Center(
+              child: Container(
+                width: 600,
+                height: 400,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
+                child: Image.asset(
+                  'assets/images/salmen.png',
+                    fit: BoxFit.cover,
+                    width: 200,
+                    height: 200,
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Description',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Hello, my name is Salman Iryad Fadhillah. I`m 17 years old, I like to do sports, especially swimming. I also like to make designs like typography or ui/ux',
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+             const SizedBox(height: 50),
+             Text('My Sosial Media',
+              textAlign: TextAlign.center,
+             ),
+             
+          ],
         ),
       ),
     );
